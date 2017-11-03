@@ -1,0 +1,29 @@
+extend layout
+
+block content
+  h1 #{title}
+  form(method='post', action='/edit/article/' + article._id)
+    label
+    input(name='title', type='text', value=article.title)
+
+    label
+    input(name='subtitle', type='text', value=article.subtitle)
+
+    label
+    input(name='author', type='text', value=article.author)
+
+    label
+    select.form-controls(name='category')
+      each category, i in categories
+        if (category._id == article.category)
+          option(value=category._id, selected) #{category.title}
+        else
+          option(value=category._id) #{category.title}
+
+    label
+    textarea(name='body', rows='20', placeholder='Content')
+
+    button(class='', type='submit', name='submit', value='Save') Save
+    a(href='/manage/articles') Back
+
+    a(class='delete-article', href='/manage/articles/' + article._id, data-article-id=article._id) Delete

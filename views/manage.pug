@@ -1,0 +1,15 @@
+extend layout
+
+block content
+  h1 #{title}
+
+  ul
+    li 
+      a(href='/manage/articles') Articles
+    li 
+      a(href='/manage/categories') Categories
+
+  //- ul
+  //- each category, i in categories
+  //-   li
+  //-     a(href='/category/' + category._id) #{category.title}

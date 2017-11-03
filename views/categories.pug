@@ -1,0 +1,9 @@
+extend layout
+
+block content
+  h1 #{title}
+
+  ul
+    each category, i in categories
+      li
+        a(href='/article/category/' + category._id) #{category.title}

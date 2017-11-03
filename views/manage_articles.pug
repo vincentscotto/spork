@@ -1,0 +1,23 @@
+extend layout
+
+block content
+  h1 #{title}
+
+  a(class='btn green right' href='/manage/add/article') Add Article
+  br
+  br
+
+  table(class='table')
+    tr
+      th Article Title
+      th Article Author
+      th Published
+      th
+    each article, i in articles
+      tr
+        td #{article.title}
+        td #{article.author}
+        td #{moment(article.created).format('MMMM Do YYYY, hh:mm:ss a')}
+        td
+          a(class='btn green' href='/manage/edit/article/' + article._id) Edit
+          a(class='btn red delete-article', href='/delete/article/' + article._id, data-cat-id=article._id) Delete

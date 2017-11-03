@@ -1,0 +1,26 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "a simple blogging system",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "*",
+    "connect-flash": "*",
+    "express": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "moment": "*",
+    "mongoose": "*",
+    "pug": "^2.0.0-alpha6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "vincent scotto",
+  "license": "MIT"
+}

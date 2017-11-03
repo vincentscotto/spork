@@ -1,0 +1,32 @@
+extend layout
+
+block content
+  h1 #{title}
+  ul.errors
+  if errors
+    each error, i in errors
+      li.alert.red #{error.msg}
+
+  form(method='post', action='/add/article')
+    label
+    input(name='title', type='text', placeholder='Title')
+
+    label
+    input(name='subtitle', type='text', placeholder='Sub Title')
+
+    label
+    input(name='author', type='text', placeholder='Author')
+
+    label
+    select.form-controls(name='category')
+      each category, i in categories
+        option(name=category.title, value=category._id) #{category.title}
+
+    label
+    textarea(name='body', rows='20', placeholder='Content')
+
+    input(type="hidden", name="date")
+
+
+    button(class='', type='submit', name='submit', value='Save') Save
+    a(href='/articles') Back

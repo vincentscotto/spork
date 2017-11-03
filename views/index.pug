@@ -1,0 +1,13 @@
+extend layout
+
+block content
+  h1 #{title}
+
+  each article, i in articles
+    a(href='/articles/show/' + article._id)
+      h2.post-title #{article.title}
+    h4.post-subtitle #{article.subtitle}
+    p.post-meta
+      | by #{article.author}
+      | on #{moment(article.created).format('MMMM Do YYYY, h:mm:ss a')}
+    hr

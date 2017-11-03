@@ -1,0 +1,18 @@
+extend layout
+
+block content
+  h1 #{title}
+  a(class='btn green right' href='/manage/add/category') Add Category
+  br
+  br
+
+  table(class='table')
+    tr
+      th Category Title
+      th
+    each category, i in categories
+      tr
+        td #{category.title}
+        td
+          a(class='btn green' href='/manage/edit/category/' + category._id) Edit
+          a(class='btn red delete-category', href='/delete/category/' + category._id, data-cat-id=category._id) Delete
