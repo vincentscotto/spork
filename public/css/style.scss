@@ -1,15 +1,51 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://weloveiconfonts.com/api/?family=entypo|fontawesome);
 
-$red: #E1332D;
+$red: #E1332D; //#FF4136;
 $green: #27ae60;
-$dark-green: #16a085;
+$darkGreen: #16a085;
 $color: #2194E0;
 $lightgrey: #efefef;
+$darkGrey: #1b1e24;
+
+$reddishPink: #E54B4B;
+$reddishPink2: #EBEBD3;
+
+/* ---------- mixins ---------- */
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+     -moz-transition: $transition;
+      -ms-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;
+}
+
+/* ---------- entypo ---------- */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ---------- fontawesome ---------- */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
 
 *, *:before, *:after {
+  font-family: "Roboto", Arial, sans-serif;
   box-sizing: border-box;
  }
+
+/* ---------- standard ---------- */
 
 html, body {
   margin: 0;
@@ -23,281 +59,215 @@ body {
   background: $lightgrey;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
+
+  font-size: 0.9rem;
+  background-color: #ebebeb;
+  padding: 20px;
+  transition: font-size 0.2s ease;  
 }
 
-form {
-  position: relative;
-  z-index: 1;
-  background: #fff;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2),
-              0 5px 5px 0 rgba(0, 0, 0, 0.24);
-
-  input, textarea {
-    font-family: "Roboto", sans-serif;
-    outline: 0;
-    background: $lightgrey;
-    width: 100%;
-    border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
-  }
-
-  button {
-    position: relative;
-    float: right;
-    width: 150px;
-  }
+h1 {
+  font-weight: 100;
+  margin: 0;
+  color: #444;
 }
 
+p {
+    font-weight: 300;
+}
 
+/* ---------- nav ---------- */
 
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
 
-
-// NAV
-
-.nav {
+nav {
+  background: none;
+  min-height: 85px;
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  width: 100%;
+  z-index: 20;
+  transition: 0.35s all ease;
 
   ul {
-    position: relative;
-    padding: 0;
-    margin: 0;
-  }
+  list-style: none;
+  padding: 2rem;
+  transition: 0.35s all ease;
 
   li {
     display: inline-block;
-    margin-right: 20px;
-  }
-  
-}
+    color: black;
+    padding: 0 1rem;
+    font-family: sans-serif;
 
-
-// COMMENTS 
-
-.comments {
-  .comment {
-    padding: 5px;
-
-    &:nth-child(even) {
-      background: #ddd;
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
     }
   }
-
+ }
 }
 
+.scrolled {
+  min-height: 10px;
+  background: black;
+  transition: 0.35s all ease;
 
+  ul {
+    padding: 1rem 2rem;
+    transition: 0.35s all ease;
+  }
 
-.center {
-  width: 350px;
-  position: absolute;
-  left: 50%;
-  margin-left: -175px;
-  top: 50%;
-  margin-top: -100px;
-}
-
-.right {
-  float: right;
-}
-
-.left {
-  float: left;
-}
-
-
-
-.text {
-  width: 100%;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: bold;
-  color: #a0a0a0;
-  display: block;
-  margin-top: 20px;
-  letter-spacing: 1px;
-  a {
-   text-decoration: none;
-    color: #007eff;
+  li {
+    color: white;
+    transition: 0.2s all ease-in-out;
   }
 }
 
+/* ---------- main ---------- */
+
+.main {
+  position: relative;
+  top: 86px;
+  height: 500px;
+}
+
+.card {
+  background-color: white;
+  max-width: 960px;
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+/* ---------- forms ---------- */
+
+.input-group {
+  position: relative;
+  padding-top: 20px;
+  margin-top: 20px;
+
+  input, textarea, select {
+    border: none;
+    border-bottom: solid 1px #ccc;
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 0;
+    min-height: 20px;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  ::-webkit-input-placeholder {
+    font-size: 15px;
+    color: #aaa;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #20cfb8;
+    box-shadow: 0 1px 0 0 #20cfb8;
+  }
+
+  input:not(:focus):valid ~ label {
+    top: 5px;
+    left: 0;
+    font-size: 11px;
+    transition: all 0.3s ease;
+  }
+
+  label {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    color: #aaa;
+    font-weight: 300;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  label:hover {
+    cursor: text;
+  }
+
+  input:focus + label {
+    color: #20cfb8;
+  }
+
+  input:focus + label,
+  input.active + label {
+    transform: translateY(-30px);
+  }
+
+}
+
+.input-group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
 
-
-
-
-
-
-// BUTTONS
+/* ---------- buttons ---------- */
 
 .btn {
+  float: right;
+  color: #20cfb8;
+  border: none;
+  outline: none;
+  background-color: transparent;
   border-radius: 2px;
-  padding: 5px 15px;
-  font-size: 14px;
-  text-decoration: none;
-  color: #fff;
-  position: relative;
-  display: inline-block;
-  margin-right: 10px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease, background-color 0.2s ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #fbfbfb;
 }
 
 .btn:active {
-  transform: translate(0px, 5px);
-  box-shadow: 0px 1px 0px 0px;
-}
-
-.blue {
-  background-color: #55acee;
-  box-shadow: 0px 5px 0px 0px #3C93D5;
-}
-
-.blue:hover {
-  background-color: #6FC6FF;
-}
-
-.green {
-  background-color: #2ecc71;
-  box-shadow: 0px 5px 0px 0px #15B358;
-}
-
-.green:hover {
-  background-color: #48E68B;
-}
-
-.red {
-  background-color: #e74c3c;
-  box-shadow: 0px 5px 0px 0px #CE3323;
-}
-
-.red:hover {
-  background-color: #FF6656;
-}
-
-.purple {
-  background-color: #9b59b6;
-  box-shadow: 0px 5px 0px 0px #82409D;
-}
-
-.purple:hover {
-  background-color: #B573D0;
-}
-
-.orange {
-  background-color: #e67e22;
-  box-shadow: 0px 5px 0px 0px #CD6509;
-}
-
-.orange:hover {
-  background-color: #FF983C;
-}
-
-.yellow {
-  background-color: #f1c40f;
-  box-shadow: 0px 5px 0px 0px #D8AB00;
-}
-
-.yellow:hover {
-  background-color: #FFDE29;
+  background-color: #f2f2f2;
 }
 
 
+/* ---------- comments ---------- */
+
+#comment-wrapper {
 
 
-table {
-  background-color: white;
-  padding: 1em;
-  border: 1px solid #ccc;
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0;
+  .comments {
+
+  }
+}
+
+/* ---------- footer ---------- */
+
+.footer {
+  color: #aaa;
+  opacity: 0.7;
+  max-width: 960px;
   width: 100%;
-  table-layout: fixed;
+  padding: 10px;
+  margin: auto;
+}
 
-  &, * {
-    border-color: $green !important;
+
+/* ---------- responsive ---------- */
+
+@media (min-width:600px) {
+    body {
+        font-size: 1rem;
     }
-
-  th {
-    text-transform: uppercase;
-    font-weight: 300;
-    text-align: center;
-    color: white;
-    background-color: $green;
-    position: relative;
-
-    &:after {
-      content: "";
-      display: block;
-      height: 5px;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      background-color: $dark-green;
-      position: absolute;
-      }
-    }
-
-  tr {
-    background: #f8f8f8;
-    border: 1px solid #ddd;
-    padding: 1em;    
-  }
-}
-
-table caption {
-  font-size: 1.5em;
-  margin: .5em 0 .75em;
-}
-
-table th,
-table td {
-  padding: 1em;
-  text-align: center;
-}
-table th {
-  font-size: 1em;
-  text-transform: uppercase;
-}
-@media screen and (max-width: 600px) {
-  table {
-    border: 0;
-  }
-  table caption {
-    font-size: 1.3em;
-  }
-  table thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-  table tr {
-    border-bottom: 3px solid #ddd;
-    display: block;
-    margin-bottom: .625em;
-  }
-  table td {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    font-size: .8em;
-    text-align: right;
-  }
-  table td:before {
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  table td:last-child {
-    border-bottom: 0;
-  }
 }

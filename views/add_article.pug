@@ -8,25 +8,30 @@ block content
       li.alert.red #{error.msg}
 
   form(method='post', action='/add/article')
-    label
-    input(name='title', type='text', placeholder='Title')
+    .input-group
+      input(name='title', type='text')
+      label Title
+    
+    .input-group
+      input(name='subtitle', type='text')
+      label Sub Title
 
-    label
-    input(name='subtitle', type='text', placeholder='Sub Title')
+    .input-group
+      input(name='author', type='text')
+      label Author
 
-    label
-    input(name='author', type='text', placeholder='Author')
+    .input-group
+      select.form-controls(name='category')
+        each category, i in categories
+          option(name=category.title, value=category._id) #{category.title}
+      label
 
-    label
-    select.form-controls(name='category')
-      each category, i in categories
-        option(name=category.title, value=category._id) #{category.title}
-
-    label
-    textarea(name='body', rows='20', placeholder='Content')
+    .input-group
+      textarea(name='body', rows='20')
+      label
 
     input(type="hidden", name="date")
 
 
-    button(class='', type='submit', name='submit', value='Save') Save
-    a(href='/articles') Back
+    button(class='btn green', type='submit', name='submit', value='Save') Save
+    a(class='btn red left', href='/articles') Back

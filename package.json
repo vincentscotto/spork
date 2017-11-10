@@ -10,9 +10,11 @@
     "express-messages": "*",
     "express-session": "*",
     "express-validator": "*",
+    "gulp": "^3.9.1",
+    "gulp-pug": "^3.3.0",
     "moment": "*",
     "mongoose": "*",
-    "pug": "^2.0.0-alpha6"
+    "pug": "^2.0.0-rc.4"
   },
   "devDependencies": {},
   "scripts": {

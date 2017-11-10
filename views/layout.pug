@@ -4,8 +4,11 @@ html
     title Blog
     link(rel="stylesheet", href="/css/style.css")
   body
-    include ./includes/nav.pug
-    block content
+    section.container
+      include ./includes/header.pug
+      include ./includes/nav.pug
+      section.main
+        block content
 
     footer
 
