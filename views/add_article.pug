@@ -9,25 +9,25 @@ block content
 
   form(method='post', action='/add/article')
     .input-group
-      input(name='title', type='text')
+      input(name='title', type='text', required)
       label Title
     
     .input-group
-      input(name='subtitle', type='text')
+      input(name='subtitle', type='text', required)
       label Sub Title
 
     .input-group
-      input(name='author', type='text')
+      input(name='author', type='text', required)
       label Author
 
     .input-group
-      select.form-controls(name='category')
+      select.form-controls(name='category', required)
         each category, i in categories
           option(name=category.title, value=category._id) #{category.title}
       label
 
     .input-group
-      textarea(name='body', rows='20')
+      textarea(name='body', rows='20', required)
       label
 
     input(type="hidden", name="date")
