@@ -3,25 +3,30 @@ extend layout
 block content
   h1 #{title}
   form(method='post', action='/edit/article/' + article._id)
-    label
-    input(name='title', type='text', value=article.title)
+    .input-group
+      input(name='title', type='text', value=article.title)
+      label Title
 
-    label
-    input(name='subtitle', type='text', value=article.subtitle)
+    .input-group
+      input(name='subtitle', type='text', value=article.subtitle)
+      label Subtitle
 
-    label
-    input(name='author', type='text', value=article.author)
+    .input-group
+      input(name='author', type='text', value=article.author)
+      label Author
 
-    label
-    select.form-controls(name='category')
-      each category, i in categories
-        if (category._id == article.category)
-          option(value=category._id, selected) #{category.title}
-        else
-          option(value=category._id) #{category.title}
+    .input-group
+      select.form-controls(name='category')
+        each category, i in categories
+          if (category._id == article.category)
+            option(value=category._id, selected) #{category.title}
+          else
+            option(value=category._id) #{category.title}
+      label
 
-    label
-    textarea(name='body', rows='20', placeholder='Content')
+    .input-group
+      textarea(name='body', rows='20', placeholder='Content') #{article.body}
+      label 
 
     button(class='green', type='submit', name='submit', value='Save') Save
     a(href='/manage/articles') Back
