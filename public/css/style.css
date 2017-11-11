@@ -108,10 +108,12 @@ nav {
     border-bottom: solid 1px #ccc;
     width: 100%;
     font-size: 15px;
+    font-weight: 300;
     padding: 10px 0;
     min-height: 20px;
     background: transparent;
     outline: none;
+    color: #aaa;
     transition: border-color 0.2s ease, box-shadow 0.2s ease; }
   .input-group ::-webkit-input-placeholder {
     font-size: 15px;
